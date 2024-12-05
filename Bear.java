@@ -1,46 +1,22 @@
-package dennisMohle.myZoo.com;
+package michael.zoo.com;
 
-import java.time.LocalDate;
+import java.util.Date;
 
-public class Bear extends Animal {
+public class Bear extends michael.zoo.com.Animal{
 
-    private String growlSound; // Unique field for the Bear class
-    private static int numOfBears = 0; // Static field to count the number of Bears
+    static int numOfBears = 0;
 
-    // Constructor that includes the growlSound parameter
-    public Bear(String name, String sex, String color, String id, String origin, int weight,
-                LocalDate birthDate, LocalDate arrivalDate, String growlSound) {
-        super(name, sex, color, id, origin, weight, birthDate, arrivalDate);
-        this.growlSound = growlSound; // Initialize the unique Bear growl sound
-        numOfBears++; // Increment the count of Bears
-        System.out.println("A new Bear has been added to the zoo.");
+    public Bear(String someName){
+        super(someName);
+        numOfBears++;
+    }
+    //Create a constructor that will have all the fields I want.
+    public Bear(String sex, int age, int weight, String animalName, String animalID, Date animalBirthDate, String animalColor, String animalOrigin, Date animalArrivalDate){
+        super(sex, age, weight, animalName,animalID, animalBirthDate, animalColor,animalOrigin, animalArrivalDate);
+        numOfBears++;
     }
 
-    // Default constructor
-    public Bear() {
-        super(); // Call the parent's default constructor
-        this.growlSound = "Grrr"; // Default growl sound
-        numOfBears++; // Increment the count of Bears
-        System.out.println("A new Bear has been added to the zoo.");
-    }
+    public Bear(String aniSex, Object o) {
 
-    // Getter for the growlSound
-    public String getGrowlSound() {
-        return growlSound;
-    }
-
-    // Setter for the growlSound
-    public void setGrowlSound(String growlSound) {
-        this.growlSound = growlSound;
-    }
-
-    // Method to simulate the Bear's growl
-    public void growl() {
-        System.out.println(getName() + " says " + growlSound + "!");
-    }
-
-    // Public static getter for numOfBears
-    public static int getNumOfBears() {
-        return numOfBears;
     }
 }

@@ -1,126 +1,85 @@
-package dennisMohle.myZoo.com;
-
-import java.time.LocalDate;
-import java.time.Period;
+package michael.zoo.com;
+import java.util.Date;
 
 public class Animal {
 
-    private String name;
-    private String sex;
-    private String color;
-    private String id;
-    private String origin;
-    private int weight;
-    private LocalDate birthDate;
-    private LocalDate arrivalDate;
+ public static int numOfAnimals = 0;
+ //Create Static int that keep track of the number of animals created
 
-    private static int numOfAnimals = 0;
+    //create a constructor for our new Animal objects
+    public Animal(){numOfAnimals++;}
 
-    public Animal(String name, String sex, String color, String id, String origin, int weight,
-                  LocalDate birthDate, LocalDate arrivalDate) {
-        this.name = name;
+    //create a constructor that accepts a name
+ public Animal(String aName){
+     this.animalName = aName;
+ }
+
+    public Animal(String sex, int age,int weight,String animalID,String animalName,Date animalBirthdate,String animalColor,String animalOrigin,Date animalArrivalDate) {
         this.sex = sex;
-        this.color = color;
-        this.id = id;
-        this.origin = origin;
+        this.age = age;
         this.weight = weight;
-        this.birthDate = birthDate;
-        this.arrivalDate = arrivalDate;
-        numOfAnimals++;
-        System.out.println("\n A new Animal object was created.\n");
-    }
+        this.animalID = animalID;
+        this.animalName = animalName;
+        this.animalBirthdate = animalBirthdate;
+        this.animalColor = animalColor;
+        this.animalOrigin = animalOrigin;
+        this.animalArrivalDate = animalArrivalDate;
 
-    public Animal() {
-        numOfAnimals++;
-        System.out.println("\n A new Animal object was created.\n");
-    }
+   }
 
-    // Name
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    // Sex
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    // Color
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    // ID
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    // Origin
-    public String getOrigin() {
-        return origin;
-    }
-
-    public void setOrigin(String origin) {
-        this.origin = origin;
-    }
-
-    // Weight
-    public int getWeight() {
-        return weight;
-    }
-
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
-
-    // BirthDate
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
-
-    // ArrivalDate
-    public LocalDate getArrivalDate() {
-        return arrivalDate;
-    }
-
-    public void setArrivalDate(LocalDate arrivalDate) {
-        this.arrivalDate = arrivalDate;
-    }
-
-    // Number of Animals
-    // Here we only have a Getter because the only place we "set" a number of animals is in the
-    //   Animal class constructor. Notice that this method is static because the field (numOfAnimals) is also static.
-    public static int getNumOfAnimals() {
-        return numOfAnimals;
-    }
+    //CREATE ALL ATTRIBUTES(fields)
 
 
-    // Age calculation based on birthDate and current date
-    //  the getAge method calculates the age of the animal based on its birthdate and the current date.
-    //  This is more accurate than setting age directly, as the age needs to update automatically as time
-    //  progresses. Note that there's no setter for age since it's derived from birthDate and the
-    //  current date, not set directly.
-    public int getAge() {
-        return Period.between(this.birthDate, LocalDate.now()).getYears();
-    }
+    // sex will be 'male' and 'female'
+    private String sex ="";
+    // age will be in years
+    private int age = 0;
+    //weight will be in pounds
+    private int weight = 0;
+    //create a unique ID for each animal
+    private String animalID = "";
+    //animal names come from a text file called animalName
+    private String animalName = "";
+    //animal birthdate
+    public Date animalBirthdate;
+    //animal color
+    private String animalColor = "";
+    //zoo origin
+    private String animalOrigin = "";
+    //arrival date
+    private Date animalArrivalDate;
+
+
+
+    //Create getters and setters
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
+
+    public String getSex() { return sex; }
+    public void setSex(String sex) { this.sex = sex; }
+
+    public int getWeight() { return weight;}
+    public void setWeight(int weight) { this.weight = weight; }
+
+    public String getAnimalID() { return animalID; }
+    public void setAnimalID(String animalID) { this.animalID = animalID;}
+
+    public String getAnimalName() {return animalName;}
+    public void setAnimalName(String animalName) {this.animalName = animalName;}
+
+    public Date getAnimalBirthdate() {return animalBirthdate;}
+    public void setAnimalBirthdate(Date animalBirthdate) {this.animalBirthdate = animalBirthdate;}
+
+    public String getAnimalColor() {return animalColor;}
+    public void setAnimalColor(String animalColor) {this.animalColor = animalColor;}
+
+    public String getAnimalOrigin() {return animalOrigin;}
+    public void setAnimalOrigin(String animalOrigin) {this.animalOrigin = animalOrigin;}
+
+    public Date getAnimalArrivalDate() {return animalArrivalDate;}
+    public void setAnimalArrivalDate(Date animalArrivalDate) {this.animalArrivalDate = animalArrivalDate;}
+
+ public int getNumOfAnimals() {return numOfAnimals;}
+ public void setNumOfAnimals(int numOfAnimals) {
+     Animal.numOfAnimals = numOfAnimals;}
 }
